@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
-	import Results from "./search.svelte";
 
 	let query: string;
 

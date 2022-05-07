@@ -23,6 +23,11 @@
 	<h1>About UNISEARCH</h1>
 
 	<p>
+		<b>This is a work in progress!</b> Currently only GitHub and Google Docs
+		are supported.
+	</p>
+
+	<p>
 		Our workflow is so fragmented across different tools. From Google Docs to
 		GitHub PRs and Issues, Asana, Slack, JIRA, to name a few.
 	</p>
@@ -30,12 +35,6 @@
 	<p>
 		UNISEARCH aims to bring one central tool to search across a variety of
 		different tools, so you don't have to remember where your docs live.
-		"One search to rule them all".
-	</p>
-
-	<p>
-		<b>This is a work in progress!</b> Currently only GitHub and Google Docs
-		are supported.
 	</p>
 </div>
 

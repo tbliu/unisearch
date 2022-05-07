@@ -1,9 +1,51 @@
 <script lang="ts">
+    import type { GH_Results } from '$lib/github';
+
     import { page } from '$app/stores';
-    const query =  $page.url.searchParams.get('q');
+    import { goto } from '$app/navigation';
+
+    let query =  $page.url.searchParams.get('q');
+
+    export let results: GH_Results[];
+
+    const onSubmit = (_: any) => {
+        if (query == null || query == "") {
+            alert("Cannot process empty query");
+            return;
+        }
+        goto(`/search?q=${query}`);
+    }
 </script>
 
 <main>
-    <h1>Results</h1>
-    <p>Query: {query}</p>
+    <form on:submit|preventDefault={onSubmit}>
+        <input bind:value={query} type="text" placeholder="Search...">
+        <button type="submit">Search</button>
+    </form>
+
+    <br />
+
+    {#if results.length === 0}
+        <p>No results found</p>
+    {:else}
+        {#each results as result}
+            <div class="card">
+                <div class="container">
+                    <h4>
+                        GitHub:
+                        <a href={result.url}>{result.title}</a>
+                        {
+                            #if result.repository != null &&
+                            result.repositoryUrl != null
+                        }
+                            in <a href={result.repositoryUrl}>
+                                {result.repository}
+                            </a>
+                        {/if}
+                    </h4>
+                    <!-- <p>{result.body}</p> -->
+                </div>
+            </div>
+        {/each}
+    {/if}
 </main>
