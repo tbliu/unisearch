@@ -1,38 +1,30 @@
-# Unisearch
+# [Work In Progress] Unisearch
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+**This project is still in early stages!**
 
-## Creating a project
+Knowledge at many companies and orgs are fractured across products like Google
+Docs, Asana, GitHub, Slack, etc. To find a particular piece of information, you
+first have to remember *where* it lives before you can actually search for it.
 
-If you're seeing this, you've probably already done this step. Congrats!
+Unisearch (**Uni**fied **Search**) is a tool that rectifies this by allowing you
+to search across different tools from a single place. 
 
-```bash
-# create a new project in the current directory
-npm init svelte
+## Features (aspirational)
+- Support for Asana, Slack, JIRA, Dropbox
+- Regex search
+- Filtering by data source
+- Drilldown into search results
 
-# create a new project in my-app
-npm init svelte my-app
-```
+## Trying it out
+This project is still in its early stages and so far only searches across
+Google Docs and GitHub Issues.
 
-## Developing
+If you'd like to try it out, clone this repo,
+fetch a [GitHub Personal Access Token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) and a
+[Google Drive Access Token](https://developers.google.com/identity/protocols/oauth2)
+and add it to [github.ts](https://github.com/tbliu/unisearch/blob/master/src/lib/github.ts) and [gdrive.ts](https://github.com/tbliu/unisearch/blob/master/src/lib/gdrive.ts) respectively.
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+Run `yarn run` and go to `localhost:3000`.
 
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+## Screenshots
+To come
