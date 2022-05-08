@@ -37,6 +37,7 @@ export async function getFromGDocs(query: string): Promise<GD_Results[]> {
     //     access_type: 'offline',
     //     scope: GDRIVE_API_SCOPES,
     // });
+    // console.log('url', url)
 
     // const {tokens} = await oauth2Client.getToken(GDRIVE_CODE);
     oauth2Client.setCredentials({
