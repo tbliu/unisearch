@@ -9,9 +9,12 @@ export type GH_Results = {
     state: string,
 }
 
+const GITHUB_ACCESS_TOKEN = '';
+
 export async function getFromGitHub(query: string): Promise<GH_Results[]> {
+    // Documentation: https://docs.github.com/en/rest/issues/issues
     const octokit = new Octokit({
-        auth: '',
+        auth: GITHUB_ACCESS_TOKEN,
     });
 
     const response = await octokit.request('GET /issues', {
@@ -26,7 +29,7 @@ export async function getFromGitHub(query: string): Promise<GH_Results[]> {
     const filtered = response.data.filter((issue) => {
         return (
             issue.title.toLowerCase().includes(query.toLowerCase())
-            || issue.body?.toLowerCase().includes(query.toLowerCase())
+            // || issue.body?.toLowerCase().includes(query.toLowerCase())
         );
     })
 

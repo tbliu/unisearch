@@ -1,4 +1,5 @@
 import { getFromGitHub } from "$lib/github";
+import { getFromGDocs } from "$lib/gdrive";
 
 /** @type {import('./search').RequestHandler} */
 export async function get({url}: { url: URL }) {
@@ -7,11 +8,14 @@ export async function get({url}: { url: URL }) {
         return [];
     }
     const ghResults = getFromGitHub(query);
-    const results = await Promise.all([ghResults]);
+    const gdResults = getFromGDocs(query);
+
+    const results = await Promise.all([ghResults, gdResults]);
 
     return {
         body: {
-            results: results[0],
+            ghResults: results[0],
+            gdResults: results[1],
         },
     }
 }
